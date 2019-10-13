@@ -1,0 +1,114 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>SportsVision - Login</title>
+	<link rel="icon" href="../static/sv_new_icon.png" type="image/gif" sizes="16x16">
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	<style type="text/css">
+		@import url('https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900|Open+Sans+Condensed:300,700|Open+Sans:300,400,600,700,800|Raleway:100,200,300,400,500,600,700,800,900|Roboto+Condensed:300,400,700|Roboto:100,300,400,500,700,900|Ubuntu:300,400,500,700&display=swap');
+		@media(max-width: 400px){
+			.img1{
+				width: 250px;
+			}
+		}
+		@media(min-width: 100px){
+			.col1{
+				height: auto;
+			}
+		}
+		@media(min-width: 500px){
+			.col1{
+				height: 100vh;
+			}
+		}
+		.btn1:hover{
+			background-color: #f2f2f2;
+			border: 2px solid #E07619;
+			color:#E07619;
+			border-radius: 5px;
+			box-shadow: 0px 0px 10px -4px rgba(0,0,0,0.75);
+
+		}
+		.btn1{
+			background-color: #E07619;
+			border: 2px solid #E07619;
+			color:white;
+			border-radius: 5px;
+		}
+	</style>
+</head>
+{% import "bootstrap/wtf.html" as wtf %}
+{% block content %}
+{% if session['logged_in'] %}
+    <script>alert("You're logged in already!")</script>
+    <script>window.open('/dashboard', '_self')</script>
+{% else %}
+<body style="background-color: #f9f9f9;height: 100vh;">
+	<div class="container" style="padding-top: 40px;" align="center">
+		<div class="row">
+			<img src="../static/sv_new_logo_transparent.png" width="250px" >
+			<h1 style="color: #000; font-weight: 300;font-size: 24px;line-height: 32px;text-align: center;font-family: 'Open Sans', sans-serif;">Sign in to SportsVision</h1>
+			<div class="col-sm-4"></div>
+			<div class="col-sm-4" style="background-color: white;padding:20px 20px 20px 20px;border-radius: 5px;border:1px solid #e0e0e0;" align="center">
+				
+				<div align="left">
+					{% with messages = get_flashed_messages(with_categories=true) %}
+  {% if messages %}
+    <ul class="flashes list-inline" align="center" id="successMessage">
+    {% for category, message in messages %}
+      <li style="color: black; font-weight: 400;font-size: 14px;font-family: 'Roboto', sans-serif;	background-color: transparent;border-radius: 5px;border:2px solid red;padding:5px 10px;margin-bottom: 15px;" class="{{ category }}">{{ message }}</li>
+    {% endfor %}
+    </ul>
+  {% endif %}
+{% endwith %}
+
+<script type="">
+	setTimeout(function() {
+    $('#successMessage').fadeOut('fast');
+}, 1500);
+</script>
+				    <form class="form-signin" method="POST" action="/login">
+				        {{ form.hidden_tag() }}
+				        {{ wtf.form_field(form.username) }}
+				        {{ wtf.form_field(form.password) }}
+				        {{ wtf.form_field(form.remember) }}
+				        <button class="btn btn-md btn-info btn1" style="width: 100%;font-family: 'Roboto', sans-serif;font-size: 16px;font-weight: 600;" type="submit">Sign in</button>
+				   	</form>
+
+				</div><br> <!-- /container -->
+				<p style="color: black; font-weight: 400;font-size: 14px;font-family: 'Open Sans', sans-serif;"><a style="color: #E07619" href="#"> Forgot Password?</a></p>
+			</div>
+			<div class="col-sm-4"></div>
+		</div><br>
+		<div class="row">
+			<div class="col-sm-4"></div>
+			<div class="col-sm-4" style="background-color: white;padding:15px 20px 5px 20px;border-radius: 5px;border:1px solid #e0e0e0;" align="center">
+				<p style="color: black; font-weight: 400;font-size: 14px;font-family: 'Open Sans', sans-serif;">New to SportsVision?<a style="color: #E07619" href="{{ url_for('signup') }}"> Create an account.</a></p>
+			</div>
+			<div class="col-sm-4"></div>
+		</div><br><br>
+		<div class="row">
+			<div class="col-sm-4"></div>
+			<div class="col-sm-4" style="padding:15px 20px 5px 20px;" align="center">
+				<ul class="list-inline">
+				    <li><a href="#" style="color: #E07619">Terms</a></li>
+				    <li><a href="#" style="color: #E07619" style="color: #E07619">Privacy</a></li>
+				    <li><a href="#" style="color: #E07619">Security</a></li>
+				    <li><a href="http://sportsvision.ai/contact-us/" style="color: #E07619">Contact SportsVision</a></li>
+				</ul>
+			</div>
+			<div class="col-sm-4"></div>
+		</div>
+	</div>
+</body>
+ {% endif %}
+{% endblock %}
+</html>

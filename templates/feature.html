@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>SportsVision - Feature</title>
+	<link rel="icon" href="../static/sv_new_icon.png" type="image/gif" sizes="16x16">
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	<script src="https://kit.fontawesome.com/1da99de032.js"></script>
+	<style type="text/css">
+		@import url('https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900|Open+Sans+Condensed:300,700|Open+Sans:300,400,600,700,800|Raleway:100,200,300,400,500,600,700,800,900|Roboto+Condensed:300,400,700|Roboto:100,300,400,500,700,900|Ubuntu:300,400,500,700&display=swap');
+		.fa1{
+			background-color: #E07619;
+			border-radius: 50px;
+			padding:15px;
+			font-size: 20px;
+			color: white;
+			transition: 0.5s;
+		}
+		.fa1:hover{
+			background-color: #E07619;
+			border-radius: 50px;
+			padding:15px;
+			font-size: 30px;
+			color: white;
+			transition: 0.5s;
+		}
+		.fa2{
+			background-color: #E07619;
+			border-radius: 50px;
+			padding:15px;
+			font-size: 20px;
+			color: white;
+			transition: 0.5s;
+		}
+		.fa2:hover{
+			background-color: #E07619;
+			border-radius: 50px;
+			padding:15px;
+			font-size: 30px;
+			color: white;
+			transition: 0.5s;
+		}
+		.fa3{
+			background-color: #E07619;
+			border-radius: 50px;
+			padding:15px 12px;
+			font-size: 20px;
+			color: white;
+			transition: 0.5s;
+		}
+		.fa3:hover{
+			background-color: #E07619;
+			border-radius: 50px;
+			padding:15px 12px;
+			font-size: 25px;
+			color: white;
+			transition: 0.5s;
+		}
+		.col1{
+			transition: 0.5s;
+			background-color: white;
+		}
+		.col1:hover{
+			box-shadow: 0px 0px 10px -2px rgba(120,120,120,1);
+			transition: 0.5s;
+		}
+		.btn1{
+			background-color: #f2f2f2;
+			border: 2px solid #E07619;
+			color:#E07619;
+			border-radius: 5px;
+			box-shadow: 0px 0px 10px -4px rgba(0,0,0,0.75);
+
+		}
+		.btn1:hover{
+			background-color: #E07619;
+			border: 2px solid #E07619;
+			color:white;
+			border-radius: 5px;
+		}
+		.img1{
+			width: 200px;
+			height: auto;
+			padding: 0px;
+			margin:0px;
+		}
+		.nav1{
+			color: #E07619 !important;
+			padding-top: 18px !important;
+		}
+		.nav1:hover{
+			color: #fff !important;
+			background-color: #E07619 !important;
+		}
+		.active{
+			color: #000 !important;
+			font-weight: 600;
+		}
+	</style>
+</head>
+{% import "bootstrap/wtf.html" as wtf %}
+<body style="background-color: #f2f2f2;">
+	<nav class="navbar navbar-inverse" style="padding: 8px 10px;margin: 0px;border-radius: 0px;background-color: white;border:none;box-shadow: 0px 10px 10px -7px rgba(0,0,0,0.75);">
+	  <div class="container">
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span> 
+	      </button>
+	      <a class="navbar-brand" href="#" style="padding: 0px;margin:0px;"><img src="../static/sv_new_logo_transparent.png" class="img1"></a>
+	    </div>
+	    <div class="collapse navbar-collapse" id="myNavbar">
+	      <ul class="nav navbar-nav">
+	      	<li><a class="nav1" href="{{ url_for('dashboard') }}" style="font-weight: 400;font-size: 18px;text-align: left;font-family: 'Open Sans', sans-serif;">Dashboard</a></li>
+	        <li><a class="nav1 active" href="{{ url_for('feature') }}" style="font-size: 18px;text-align: left;font-family: 'Open Sans', sans-serif;">Features</a></li>
+		    <li class="dropdown">
+		        <a class="nav1" class="dropdown-toggle" data-toggle="dropdown" href="#" style="font-weight: 400;font-size: 18px;text-align: left;font-family: 'Open Sans', sans-serif;">Explore
+		        <span class="caret"></span></a>
+		        <ul class="dropdown-menu" style="color: #000; font-weight: 400;font-size: 14px;text-align: left;font-family: 'Open Sans', sans-serif;">
+		          <li style="font-weight: 800; font-size: 16px;"><a href="http://sportsvision.ai/"><b>Explore SportsVision</b></a></li>
+		        </ul>
+		    </li>
+	        <li><a class="nav1" href="#" style="font-weight: 400;font-size: 18px;text-align: left;font-family: 'Open Sans', sans-serif;">For PoC Purpose</a></li>
+	      </ul>
+	      <ul class="nav navbar-nav navbar-right">
+	        <li style="font-weight: 400;font-size: 18px;text-align: left;font-family: 'Open Sans', sans-serif;"><a class="nav1" href="#"><span class="glyphicon glyphicon-user"></span><b> {{ name }}</b></a></li>
+        	<li style="font-weight: 400;font-size: 18px;text-align: left;font-family: 'Open Sans', sans-serif;"><a class="nav1" href="{{ url_for('logout') }}"><span class="glyphicon glyphicon-log-out"></span> Logout</a></li>
+	      </ul>
+	    </div>
+	  </div>
+	</nav>
+		<div class="container" style="padding-top: 40px;">
+			<div class="row">
+				
+				<div class="col-sm-6" style="padding:20px 15px" align="left">
+					<div class="col1" style="padding:10px 20px 20px 20px;border-radius: 5px;">	
+						<h1 style="color: #fff; font-weight: 600;font-size: 22px;padding-top: 20px;padding-bottom: 20px;line-height: 30px;font-family: 'Open Sans', sans-serif;text-align:center;"><span style="background-color: #E07619;padding: 10px 7px">Action and Event Tagging	</span></h1>
+						<p style="color: black; font-weight: 400;font-size: 14px;padding-bottom: 10px;line-height: 22px;font-family: 'Roboto', sans-serif;">Action and Event Tagging aims to recognize the actions and events from a match footage reducing time spent for digital broadcasting/ video production companies. Our current AI model provides Tennis, Football, and Rugby actions and event tagging. SportsVision currently tags more than 20 actions of different sports.</p>
+						<ul class="list-inline">
+						    <li><i class="fas fa-futbol fa1"></i></li>
+						    <li><i class="fas fa-football-ball fa1"></i></li>
+						    <li><i class="fas fa-basketball-ball fa1"></i></li>
+						    <li><i class="fas fa-table-tennis fa1"></i></li>
+						</ul><br>	
+						<a href="#" class="btn btn1" style="font-family: 'Roboto', sans-serif;font-size: 14px;font-weight: 600;margin-right: 30px;">Subscribe</a><a href="{{ url_for('upload') }}" class="btn btn1" style="font-family: 'Roboto', sans-serif;font-size: 14px;font-weight: 600;">Upload</a>
+					</div>
+				</div>
+				
+				<div class="col-sm-6" style="padding:20px 15px" align="left">
+					<div class="col1" style="padding:10px 20px 20px 20px;border-radius: 5px;">	
+						<h1 style="color: #fff; font-weight: 600;font-size: 22px;padding-top: 20px;padding-bottom: 20px;line-height: 30px;font-family: 'Open Sans', sans-serif;text-align:center;"><span style="background-color: #E07619;padding: 10px 7px">Player Tracker</span></h1>
+						<p style="color: black; font-weight: 400;font-size: 14px;padding-bottom: 10px;line-height: 22px;font-family: 'Roboto', sans-serif;">SportsVision’s Player Tracker is a state-of-the-art tracker algorithm to track players, predefined objects and custom objects in a match footage. It can detect the speed of players, track flying trajectory, action areas inside a match, and many more such parameters to improve the performances.</p>
+						<ul class="list-inline">
+						    <li><i class="fas fa-futbol fa1"></i></li>
+						    <li><i class="fas fa-basketball-ball fa1"></i></li>
+						</ul><br>	
+						<a href="#" class="btn btn1" style="font-family: 'Roboto', sans-serif;font-size: 14px;font-weight: 600;margin-right: 30px;">Subscribe</a><a href="{{ url_for('upload') }}" class="btn btn1" style="font-family: 'Roboto', sans-serif;font-size: 14px;font-weight: 600;">Upload</a>
+					</div>
+				</div>
+				
+				<!--div class="col-sm-4" style="padding:20px 15px" align="left">
+					<div class="col1" style="padding:10px 20px 20px 20px;border-radius: 5px;">	
+						<h1 style="color: #fff; font-weight: 600;font-size: 22px;padding-top: 20px;padding-bottom: 20px;line-height: 30px;font-family: 'Open Sans', sans-serif;text-align:center;"><span style="background-color: #E07619;padding: 10px 7px">Body Posture Analysis</span></h1>
+						<p style="color: black; font-weight: 400;font-size: 14px;padding-bottom: 10px;line-height: 22px;font-family: 'Roboto', sans-serif;">Deep Learning when combined with Computer Vision, becomes extremely powerful and our Pose Estimation model marked body postures key-points for measuring angles and rotation. This can help in injury analysis. It corrects wrong body posture and helps with a training program.</p>
+						<ul class="list-inline">
+						    <li><i class="fas fa-futbol fa2"></i></li>
+						    <li><i class="fas fa-football-ball fa2"></i></li>
+						    <li><i class="fas fa-basketball-ball fa2"></i></li>
+						    <li><i class="fas fa-table-tennis fa2"></i></li>
+						    <li><i class="fas fa-biking fa3"></i></li>
+						</ul><br>	
+						<a href="#" class="btn btn1" style="font-family: 'Roboto', sans-serif;font-size: 14px;font-weight: 600;margin-right: 30px;">Subscribe</a><a href="{{ url_for('upload') }}" class="btn btn1" style="font-family: 'Roboto', sans-serif;font-size: 14px;font-weight: 600;">Upload</a>
+					</div>
+				</div-->
+			</div>
+			<div class="row">
+				<!--div class="col-sm-4" style="padding:20px 15px" align="left">
+					<div class="col1" style="padding:10px 20px 20px 20px;border-radius: 5px;">	
+						<h1 style="color: #fff; font-weight: 600;font-size: 22px;padding-top: 20px;padding-bottom: 20px;line-height: 30px;font-family: 'Open Sans', sans-serif;text-align:center;"><span style="background-color: #E07619;padding: 10px 7px">Team and Brand Logo Detection</span></h1>
+						<p style="color: black; font-weight: 400;font-size: 14px;padding-bottom: 10px;line-height: 22px;font-family: 'Roboto', sans-serif;">Off-field Analytics is where the clubs generate a bigger part of their revenue. SportsVision’s Brand Logo Recognition provides the screen timing of recognized logo and also the total number of logos captured assisting team managements to engage those brands.</p>
+						<ul class="list-inline">
+						    <li><i class="fas fa-futbol fa2"></i></li>
+						    <li><i class="fas fa-football-ball fa2"></i></li>
+						    <li><i class="fas fa-basketball-ball fa2"></i></li>
+						    <li><i class="fas fa-table-tennis fa2"></i></li>
+						    <li><i class="fas fa-biking fa3"></i></li>
+						</ul><br>
+						<a href="#" class="btn btn1" style="font-family: 'Roboto', sans-serif;font-size: 14px;font-weight: 600;margin-right: 30px;">Subscribe</a><a href="{{ url_for('upload') }}" class="btn btn1" style="font-family: 'Roboto', sans-serif;font-size: 14px;font-weight: 600;">Upload</a>
+					</div>
+				</div-->
+				
+				<div class="col-sm-6" style="padding:20px 15px" align="left">
+					<div class="col1" style="padding:10px 20px 20px 20px;border-radius: 5px;">	
+						<h1 style="color: #fff; font-weight: 600;font-size: 22px;padding-top: 20px;padding-bottom: 20px;line-height: 30px;font-family: 'Open Sans', sans-serif;text-align:center;"><span style="background-color: #E07619;padding: 10px 7px">Body Posture Analysis</span></h1>
+						<p style="color: black; font-weight: 400;font-size: 14px;padding-bottom: 10px;line-height: 22px;font-family: 'Roboto', sans-serif;">Deep Learning when combined with Computer Vision, becomes extremely powerful and our Pose Estimation model marked body postures key-points for measuring angles and rotation. This can help in injury analysis. It corrects wrong body posture and helps with a training program.</p>
+						<ul class="list-inline">
+						    <li><i class="fas fa-futbol fa2"></i></li>
+						    <li><i class="fas fa-football-ball fa2"></i></li>
+						    <li><i class="fas fa-basketball-ball fa2"></i></li>
+						    <li><i class="fas fa-table-tennis fa2"></i></li>
+						    <li><i class="fas fa-biking fa3"></i></li>
+						</ul><br>	
+						<a href="#" class="btn btn1" style="font-family: 'Roboto', sans-serif;font-size: 14px;font-weight: 600;margin-right: 30px;">Subscribe</a><a href="{{ url_for('upload') }}" class="btn btn1" style="font-family: 'Roboto', sans-serif;font-size: 14px;font-weight: 600;">Upload</a>
+					</div>
+				</div>
+				<div class="col-sm-6" style="padding:20px 15px" align="left">
+					<div class="col1" style="padding:10px 20px 20px 20px;border-radius: 5px;">	
+						<h1 style="color: #fff; font-weight: 600;font-size: 22px;padding-top: 20px;padding-bottom: 20px;line-height: 30px;font-family: 'Open Sans', sans-serif;text-align:center;"><span style="background-color: #E07619;padding: 10px 7px">Quick Match Highlights</span></h1>
+						<p style="color: black; font-weight: 400;font-size: 14px;padding-bottom: 31px;line-height: 22px;font-family: 'Roboto', sans-serif;">SportsVision’s machine-learning based algorithm generates raw and custom defined match highlights with all the exciting moments from a full match in quick time.</p>
+						<ul class="list-inline">
+						    <li><i class="fas fa-futbol fa1"></i></li>
+						    <li><i class="fas fa-football-ball fa1"></i></li>
+						    <li><i class="fas fa-basketball-ball fa1"></i></li>
+						</ul><br>	
+						<a href="#" class="btn btn1" style="font-family: 'Roboto', sans-serif;font-size: 14px;font-weight: 600;margin-right: 30px;">Subscribe</a><a href="{{ url_for('upload') }}" class="btn btn1" style="font-family: 'Roboto', sans-serif;font-size: 14px;font-weight: 600;">Upload</a>
+					</div>
+				</div>
+				<!--div class="col-sm-4" style="padding:20px 15px">
+					<div class="col1" style="padding:10px 20px 20px 20px;border-radius: 5px;">	
+						<h1 style="color: #fff; font-weight: 600;font-size: 22px;padding-top: 20px;padding-bottom: 20px;line-height: 30px;font-family: 'Open Sans', sans-serif;text-align: center"><span style="background-color: #E07619;padding: 10px 7px">Ratingspro</span></h1>
+						<p style="color: black; font-weight: 400;font-size: 14px;padding-bottom: 31px;line-height: 22px;font-family: 'Roboto', sans-serif;text-align: ">Ratingspro is a machine learning based algorithm which provides match ratings for players based on the standard FIFA based data points. Currently, this feature is active for Football.</p>
+						<ul class="list-inline">
+						    <li><i class="fas fa-futbol fa1"></i></li>
+						</ul><br>	
+						<a href="#" class="btn btn1" style="font-family: 'Roboto', sans-serif;font-size: 14px;font-weight: 600;margin-right: 30px;">Subscribe</a><a href="#" class="btn btn1" style="font-family: 'Roboto', sans-serif;font-size: 14px;font-weight: 600;">Upload</a>
+					</div>
+				</div-->
+			</div>
+		</div>
+</body>
+</html>

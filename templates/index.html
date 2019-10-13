@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>SportsVision</title>
+	<link rel="icon" href="../static/sv_new_icon.png" type="image/gif" sizes="16x16">
+	<!-- Latest compiled and minified CSS -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/css/bootstrap.min.css">
+	<!-- jQuery library -->
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+	<!-- Latest compiled JavaScript -->
+	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.0/js/bootstrap.min.js"></script>
+	<style type="text/css">
+		@import url('https://fonts.googleapis.com/css?family=Montserrat:100,200,300,400,500,600,700,800,900|Open+Sans+Condensed:300,700|Open+Sans:300,400,600,700,800|Raleway:100,200,300,400,500,600,700,800,900|Roboto+Condensed:300,400,700|Roboto:100,300,400,500,700,900|Ubuntu:300,400,500,700&display=swap');
+		@media(max-width: 400px){
+			.img1{
+				width: 250px;
+			}
+		}
+		@media(min-width: 100px){
+			.col1{
+				height: auto;
+			}
+		}
+		@media(min-width: 500px){
+			.col1{
+				height: 100vh;
+			}
+		}
+		.img2{
+			width: 200px;
+			height: auto;
+			padding: 0px;
+			margin:0px;
+		}
+		.nav1{
+			color: #E07619 !important;
+			padding-top: 18px !important;
+		}
+		.nav1:hover{
+			color: #fff !important;
+			background-color: #E07619 !important;
+		}
+		.active{
+			color: #000 !important;
+			font-weight: 600;
+		}
+		.btn1:hover{
+			background-color: #f2f2f2;
+			border: 2px solid #E07619;
+			color:#E07619;
+			border-radius: 5px;
+			box-shadow: 0px 0px 10px -4px rgba(0,0,0,0.75);
+
+		}
+		.btn1{
+			background-color: #E07619;
+			border: 2px solid #E07619;
+			color:white;
+			border-radius: 5px;
+		}
+	</style>
+</head>
+{% import "bootstrap/wtf.html" as wtf %}
+{% block content %}
+{% if session['logged_in'] %}
+    <script>alert("You're logged in already!")</script>
+    <script>window.open('/dashboard', '_self')</script>
+{% else %}
+<body >
+		<nav class="navbar navbar-inverse" style="padding: 8px 10px;margin: 0px;border-radius: 0px;background-color: white;border:none;box-shadow: 0px 10px 10px -7px rgba(0,0,0,0.75);">
+	  <div class="container">
+	    <div class="navbar-header">
+	      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span>
+	        <span class="icon-bar"></span> 
+	      </button>
+	      <a class="navbar-brand" href="#" style="padding: 0px;margin:0px;"><img src="../static/sv_new_logo_transparent.png" class="img2"></a>
+	    </div>
+	    <div class="collapse navbar-collapse" id="myNavbar">
+	      <ul class="nav navbar-nav">
+	      	<li><a class="nav1" href="{{ url_for('dashboard') }}" style="font-weight: 400;font-size: 18px;text-align: left;font-family: 'Open Sans', sans-serif;">Dashboard</a></li>
+	        <li><a class="nav1" href="{{ url_for('feature') }}" style="font-size: 18px;text-align: left;font-family: 'Open Sans', sans-serif;">Features</a></li>
+		    <li class="dropdown">
+		        <a class="nav1" class="dropdown-toggle" data-toggle="dropdown" href="#" style="font-weight: 400;font-size: 18px;text-align: left;font-family: 'Open Sans', sans-serif;">Explore
+		        <span class="caret"></span></a>
+		        <ul class="dropdown-menu" style="color: #000; font-weight: 400;font-size: 14px;text-align: left;font-family: 'Open Sans', sans-serif;">
+		          <li style="font-weight: 800; font-size: 16px;"><a href="http://sportsvision.ai/"><b>Explore SportsVision</b></a></li>
+		        </ul>
+		    </li>
+	        <li><a class="nav1" href="#" style="font-weight: 400;font-size: 18px;text-align: left;font-family: 'Open Sans', sans-serif;">For PoC Purpose</a></li>
+	      </ul>
+	      <ul class="nav navbar-nav navbar-right">
+	      	<li style="font-weight: 400;font-size: 18px;text-align: left;font-family: 'Open Sans', sans-serif;border:1px #E07619 solid;border-radius: 5px;margin-right: 20px;"><a class="nav1 active"  href="{{ url_for('index') }}"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+        	<li style="font-weight: 400;font-size: 18px;text-align: left;font-family: 'Open Sans', sans-serif;"><a class="nav1" href="{{ url_for('login') }}"><span class="glyphicon glyphicon-log-in"></span> Login</a></li>
+	      </ul>
+	    </div>
+	  </div>
+	</nav>
+	<section style="background: url(../static/sv_bg1.png);background-size: cover;background-repeat: no-repeat;">
+	<div class="container-fluid" style="padding:0px;background-color: rgba(0,0,0,0.8);">
+		<div class="col-sm-1"></div>
+		<div class="col-sm-5 col1" style="padding-bottom: 50px;text-align: center;padding-top: 12%;">
+			<div>
+				<div class="col-sm-2"></div>
+				<div class="col-sm-10">
+					<h1 style="color: #ffffff; font-weight: 600;font-size: 64px;line-height: 80px;text-align: left;font-family: 'Open Sans', sans-serif;">Built for<br><span style="background-color: #E07619;font-size: 60px;"> Sports Analytics</span></h1>
+					<p style="color: #E07619; font-weight: 400;font-size: 22px;padding-top: 10px;padding-bottom: 20px;line-height: 32px;text-align: left;font-family: 'Roboto', sans-serif;">Artificial Intelligence that can automate video analytics for coaches, managers, rights holders, and digital broadcasting companies.</p>
+				</div>
+			</div>
+		</div>
+		<div class="col-sm-5 col1" style="padding-bottom: 50px;text-align: center;padding-top: 8%;" align="center">
+			<div class="row" style="padding-left:10px;padding-right:10px;">
+				<div class="col-sm-1"></div>
+				<div class="col-sm-8" style="background-color: white;padding:30px 30px 20px 30px;border-radius: 5px;" align="center">
+					
+			  			<form class="form-signin" method="POST" action="/signup" align="left">
+			  				{{ form.hidden_tag() }}
+					    	{{ wtf.form_field(form.username) }}
+					    	{{ wtf.form_field(form.email) }}
+					    	{{ wtf.form_field(form.password) }}
+					    	<p style="color: #000; font-weight: 400;font-size: 11px;margin-top:-5px;line-height: 14px;text-align: left;font-family: 'Roboto', sans-serif;">Make sure it's at least 15 characters OR <span style="color:#E07619;">at least 8 characters including a number and a lowercase letter.</span></p>
+					    	<br><button class="btn btn-md btn-info btn1" style="padding: 15px 30px;border:none;width: 100%;font-family: 'Roboto', sans-serif;font-size: 16px;font-weight: 600;" type="submit">Sign Up for SportsVision</button>
+					    	<p style="color: #000; font-weight: 400;font-size: 11px;margin-top:35px;line-height: 14px;text-align: left;font-family: 'Roboto', sans-serif;">By clicking “Sign up for SportsVision”, you agree to our Terms of Service and Privacy Statement. We’ll occasionally send you account related emails.</p>
+					  	</form>
+					
+				</div>
+				<div class="col-sm-3"></div>
+			</div>
+		</div>
+		<div class="col-sm-2"></div>
+	</div>
+</section>
+<!--section style="background-color: #fafbfc;padding-top: 5%;padding-bottom: 5%;">
+	<div class="container" style="background-color: white;padding:50px 20px;box-shadow: 0px 0px 10px -2px rgba(66,66,66,1);border-radius: 5px;">
+		<div class="col-sm-3">
+			<h1 style="color: black; font-weight: 600;font-size: 32px;line-height:40px;font-family: 'Open Sans', sans-serif;">Get Started with <br>SportsVision</h1>
+			<p style="color: #777777; font-weight: 400;font-size: 16px;line-height: 24px;font-family: 'Roboto', sans-serif;">SportsVision is an advanced sports analytics platform powered by Artificial Intelligence, Deep Learning and Computer Vision for both off & on the field Analytics that caters to the needs of everyone involved in sports management.</p>
+		</div>
+		<div class="col-sm-3" align="center" style="padding-top: 50px; padding-left: 20px; padding-right: 20px;">
+			<img src="../static/sv_img1.png" width="70px;">
+			<p style="color: #000; font-weight: 500;font-size: 18px;line-height: 29px;font-family: 'Roboto', sans-serif;padding-top: 30px;">SportsVision</p>
+			<a href="" class="btn btn-info btn-md" style="background-color: #1e79db;padding: 15px;width:100%;border:none;font-family: 'Roboto', sans-serif;font-size: 16px;font-weight: 400;">Try SportsVision for Free</a>
+		</div>
+		<div class="col-sm-3" align="center" style="padding-top: 50px;padding-left: 20px; padding-right: 20px;">
+			<img src="../static/sv_img2.png" width="90px;">
+			<p style="color: #000; font-weight: 500;font-size: 18px;line-height: 22px;font-family: 'Roboto', sans-serif;padding-top: 31px;">SportsVision Pro</p>
+			<a href="" class="btn btn-info btn-md" style="background-color: #1e79db;padding: 15px;width:100%;border:none;font-family: 'Roboto', sans-serif;font-size: 16px;font-weight: 400;">Try SportsVision Pro</a>
+		</div>
+		<div class="col-sm-3" align="center" style="padding-top: 50px;padding-left: 20px; padding-right: 20px;">
+			<img src="../static/sv_contact.png" width="70px;">
+			<p style="color: #000; font-weight: 500;font-size: 18px;line-height: 29px;font-family: 'Roboto', sans-serif;padding-top: 30px;">Talk to us</p>
+			<a href="" class="btn btn-info btn-md" style="background-color: #1e79db;padding: 15px;width:100%;border:none;font-family: 'Roboto', sans-serif;font-size: 16px;font-weight: 400;">Contact Us</a>
+		</div>
+		
+	</div>
+	
+</section-->
+</body>
+  {% endif %}
+{% endblock %}
+</html>
